@@ -8,7 +8,10 @@ import constants from "./../constants/constants";
 import dummyData from "./../constants/dummy";
 import CustomButton from "./../components/CustomButton";
 
-const dataTabs = constants.promoTabs;
+const dataTabs = constants.promoTabs.map((promoTab) => ({
+    ...promoTab,
+    ref: React.createRef(),
+}));
 
 const Home = ({ navigation, appTheme }) => {
     const scrollX = React.useRef(new Animated.Value(0)).current;
@@ -31,33 +34,75 @@ const Home = ({ navigation, appTheme }) => {
         );
     };
 
-    const TabIndicator = () => {
+    const TabIndicator = ({ measureLayout, scrollX }) => {
+        const inputRange = dataTabs.map((_, i) => i * SIZES.width);
+
+        const tabIndicatorWidth = scrollX.interpolate({
+            inputRange,
+            outputRange: measureLayout.map((measure) => measure.width),
+        });
+
+        const translateX = scrollX.interpolate({
+            inputRange,
+            outputRange: measureLayout.map((measure) => measure.x),
+        });
+
         return (
-            <View
+            <Animated.View
                 style={{
                     position: "absolute",
                     left: 0,
                     top: 0,
                     bottom: 0,
-                    width: 100,
+                    width: tabIndicatorWidth,
                     height: "100%",
                     borderRadius: SIZES.radius,
                     backgroundColor: COLORS.primary,
+                    transform: [
+                        {
+                            translateX,
+                        },
+                    ],
                 }}
             />
         );
     };
 
     const Scrooltabs = () => {
+        const [measureLayout, setMesureLayout] = React.useState([]);
+        const containerRef = React.useRef();
+
+        React.useEffect(() => {
+            let ml = [];
+
+            dataTabs.forEach((promo) => {
+                promo.ref.current.measureLayout(containerRef.current, (x, y, width, height) => {
+                    ml.push({
+                        x,
+                        y,
+                        width,
+                        height,
+                    });
+
+                    if (ml.length === dataTabs.length) {
+                        setMesureLayout(ml);
+                    }
+                });
+            });
+        }, [containerRef.current]);
+
         return (
             <>
-                <View style={{ flexDirection: "row", marginHorizontal: 30, marginTop: 10, borderRadius: SIZES.radius, backgroundColor: "#ddd" }}>
-                    <TabIndicator />
+                <View ref={containerRef} style={{ flexDirection: "row", marginHorizontal: 30, marginTop: 10, borderRadius: SIZES.radius, backgroundColor: "#ddd" }}>
+                    {measureLayout.length > 0 && <TabIndicator measureLayout={measureLayout} scrollX={scrollX} />}
+
                     {dataTabs.map((item, index) => (
-                        <TouchableOpacity>
-                            <Text key={index} style={{ marginHorizontal: 10 }}>
-                                {item.title}
-                            </Text>
+                        <TouchableOpacity key={index}>
+                            <View ref={item.ref}>
+                                <Text key={index} style={{ marginHorizontal: 15 }}>
+                                    {item.title}
+                                </Text>
+                            </View>
                         </TouchableOpacity>
                     ))}
                 </View>
@@ -70,9 +115,21 @@ const Home = ({ navigation, appTheme }) => {
                     scrollEventThrottle={19}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
-                    onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
-                        useNativeDriver: false,
-                    })}
+                    onScroll={Animated.event(
+                        // scrollX = e.nativeEvent.contentOffset.x
+                        [
+                            {
+                                nativeEvent: {
+                                    contentOffset: {
+                                        x: scrollX,
+                                    },
+                                },
+                            },
+                        ],
+                        {
+                            useNativeDriver: false,
+                        }
+                    )}
                     renderItem={({ item, index }) => {
                         return (
                             <View key={item.id} style={{ alignItems: "center", paddingBottom: 15 }}>
