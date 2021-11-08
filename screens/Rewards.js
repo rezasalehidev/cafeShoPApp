@@ -5,6 +5,8 @@ import HeaderBar from "./../components/HeaderBar";
 import { connect } from "react-redux";
 import ImageRewards from "./../components/ImageRewards";
 import DesignButton from "../components/DesignButton";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import HeaderRewards from "./../components/HeaderRewards";
 
 const Rewards = ({ navigation, appTheme }) => {
     return (
@@ -27,8 +29,7 @@ const Rewards = ({ navigation, appTheme }) => {
                 ListHeaderComponent={
                     <View style={{ justifyContent: "center", alignItems: "center" }}>
                         {/* header */}
-                        <Text style={{ ...FONTS.h3, color: COLORS.primary, marginVertical: 10 }}>Rewards</Text>
-                        <Text style={{ ...FONTS.h5, color: appTheme.textColor, marginVertical: 10 }}>if You Want Reward Follow Instagram CafeShop</Text>
+                        <HeaderRewards appTheme={appTheme} />
                         {/* images */}
                         <ImageRewards />
                         {/* Buttons */}
@@ -36,6 +37,7 @@ const Rewards = ({ navigation, appTheme }) => {
                             <DesignButton
                                 stylesContent={{ backgroundColor: COLORS.primary, width: 80, height: 25, borderRadius: 12, justifyContent: "center", alignItems: "center", marginHorizontal: 5 }}
                                 labelStyle={{ color: COLORS.white }}
+                                onPress={() => navigation.navigate("Location")}
                             >
                                 Shop
                             </DesignButton>
@@ -51,6 +53,7 @@ const Rewards = ({ navigation, appTheme }) => {
                                     borderColor: COLORS.black,
                                     borderWidth: 1,
                                 }}
+                                onPress={() => navigation.navigate("Location")}
                                 labelStyle={{ color: COLORS.black, fontSize: 12 }}
                             >
                                 New Order
@@ -58,7 +61,7 @@ const Rewards = ({ navigation, appTheme }) => {
                         </View>
 
                         {/* Text Available */}
-                        <Text style={{ alignSelf: "flex-start", marginHorizontal: 25, marginVertical: 10, color: COLORS.white }}>Available Now</Text>
+                        <Text style={{ alignSelf: "flex-start", marginHorizontal: 25, marginVertical: 10, color: appTheme.textColor }}>Available Now</Text>
                     </View>
                 }
                 renderItem={({ item }) => {
@@ -74,14 +77,16 @@ const Rewards = ({ navigation, appTheme }) => {
                                 marginHorizontal: SIZES.padding,
                             }}
                         >
-                            <Text
-                                style={{
-                                    color: item.eligible ? COLORS.black : COLORS.white,
-                                    ...FONTS.body5,
-                                }}
-                            >
-                                {item.title}
-                            </Text>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate("Location")}>
+                                <Text
+                                    style={{
+                                        color: item.eligible ? COLORS.black : COLORS.white,
+                                        ...FONTS.body5,
+                                    }}
+                                >
+                                    {item.title}
+                                </Text>
+                            </TouchableWithoutFeedback>
                         </View>
                     );
                 }}
