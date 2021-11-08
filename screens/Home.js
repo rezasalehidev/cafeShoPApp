@@ -79,6 +79,8 @@ const Home = ({ navigation, appTheme }) => {
         const [measureLayout, setMesureLayout] = React.useState([]);
         const containerRef = React.useRef();
 
+        const tabPosition = Animated.divide(scrollX, SIZES.width);
+
         React.useEffect(() => {
             let ml = [];
 
@@ -103,15 +105,22 @@ const Home = ({ navigation, appTheme }) => {
                 <View ref={containerRef} style={{ flexDirection: "row", marginHorizontal: 30, marginTop: 10, borderRadius: SIZES.radius, backgroundColor: "#ddd" }}>
                     {measureLayout.length > 0 && <TabIndicator measureLayout={measureLayout} scrollX={scrollX} />}
 
-                    {dataTabs.map((item, index) => (
-                        <TouchableOpacity key={index} onPress={() => onTabPress(index)}>
-                            <View ref={item.ref}>
-                                <Text key={index} style={{ marginHorizontal: 15 }}>
-                                    {item.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
+                    {dataTabs.map((item, index) => {
+                        const textColor = tabPosition.interpolate({
+                            inputRange: [index - 1, index, index + 1],
+                            outputRange: [COLORS.black, COLORS.white, COLORS.black],
+                            extrapolate: "clamp",
+                        });
+                        return (
+                            <TouchableOpacity key={index} onPress={() => onTabPress(index)}>
+                                <View ref={item.ref}>
+                                    <Animated.Text key={index} style={{ marginHorizontal: 15, color: textColor }}>
+                                        {item.title}
+                                    </Animated.Text>
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
                 </View>
 
                 {/* details image scroll animated */}
