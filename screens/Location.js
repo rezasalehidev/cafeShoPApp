@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Dimensions, Image } from "react-native";
 import HeaderLocation from "./../components/HeaderLocation";
 import { connect } from "react-redux";
-import { SIZES, COLORS } from "../constants";
+import { SIZES, COLORS, icons } from "../constants";
 import TabLocation from "../components/TabLocation";
+
+const windowWidth = Dimensions.get("screen").width;
 
 const Location = ({ navigation, appTheme }) => {
     const [selectedTab, setSelectedTab] = useState(0);
+    const [search, setSearch] = useState("");
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: appTheme.backgroundColor }]}>
             {/* Header */}
             <HeaderLocation appTheme={appTheme} navigation={navigation} />
 
@@ -16,6 +19,7 @@ const Location = ({ navigation, appTheme }) => {
             <View style={[styles.DetialsContainer, { backgroundColor: appTheme.backgroundColor }]}>
                 {/* TabLocation Components */}
                 <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                    {/* use three TabLocation Component  */}
                     <TabLocation
                         containerStyle={{
                             width: 80,
@@ -42,6 +46,29 @@ const Location = ({ navigation, appTheme }) => {
                     />
                 </View>
             </View>
+
+            {/*Search Box  */}
+            <View
+                style={{
+                    alignItems: "center",
+                    flexDirection: "row",
+                    borderRadius: SIZES.radius,
+                    marginLeft: SIZES.padding + 10,
+                    height: 50,
+                    width: (windowWidth / 2) * 1.6,
+                    borderWidth: 1,
+                    borderColor: appTheme.textColor,
+                    backgroundColor: COLORS.lightGreen2,
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                }}
+            >
+                <TextInput placeholder="Enter Your City" placeholderTextColor={COLORS.lightGray} style={{ marginLeft: 5, textAlign: "left" }} />
+
+                <TouchableOpacity onPress={() => console.log("hello")}>
+                    <Image source={icons.search} style={{ marginRight: 10 }} />
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -51,7 +78,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     DetialsContainer: {
-        flex: 1,
         borderTopLeftRadius: SIZES.radius * 2,
         borderTopRightRadius: SIZES.radius * 2,
         marginTop: -20,

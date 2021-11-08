@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     IconLeftArrow: {
         width: 20,
         height: 20,
-        color: COLORS.white,
         marginLeft: 10,
         marginBottom: 25,
     },
