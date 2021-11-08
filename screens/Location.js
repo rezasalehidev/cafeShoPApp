@@ -89,7 +89,7 @@ const Location = ({ navigation, appTheme }) => {
                 }}
                 renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity style={[styles.tochableContainer, { backgroundColor: COLORS.lightGray2 }]} onPress={() => navigation.navigate("Order", { selectItem: item })}>
+                        <TouchableOpacity style={[styles.tochableContainer, { backgroundColor: COLORS.lightGray2 }]} onPress={() => navigation.navigate("Order", { selectItemLocation: item })}>
                             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                 <View>
                                     <Text style={{ color: COLORS.white, ...FONTS.body2 }}>Graden Grown {item.id}</Text>
