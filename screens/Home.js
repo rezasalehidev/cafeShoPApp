@@ -15,6 +15,13 @@ const dataTabs = constants.promoTabs.map((promoTab) => ({
 
 const Home = ({ navigation, appTheme }) => {
     const scrollX = React.useRef(new Animated.Value(0)).current;
+    const tabRefReview = React.useRef();
+
+    const onTabPress = React.useCallback((tabIndex) => {
+        tabRefReview?.current?.scrollToOffset({
+            offset: tabIndex * SIZES.width,
+        });
+    });
 
     const TabReview = () => {
         return (
@@ -97,7 +104,7 @@ const Home = ({ navigation, appTheme }) => {
                     {measureLayout.length > 0 && <TabIndicator measureLayout={measureLayout} scrollX={scrollX} />}
 
                     {dataTabs.map((item, index) => (
-                        <TouchableOpacity key={index}>
+                        <TouchableOpacity key={index} onPress={() => onTabPress(index)}>
                             <View ref={item.ref}>
                                 <Text key={index} style={{ marginHorizontal: 15 }}>
                                     {item.title}
@@ -109,6 +116,7 @@ const Home = ({ navigation, appTheme }) => {
 
                 {/* details image scroll animated */}
                 <Animated.FlatList
+                    ref={tabRefReview}
                     data={dummyData.promos}
                     horizontal
                     pagingEnabled
@@ -136,7 +144,7 @@ const Home = ({ navigation, appTheme }) => {
                                 <Image source={item.image} style={{ marginHorizontal: 20 }} />
                                 <Text style={{ ...FONTS.h3, color: COLORS.primary }}>{item.name}</Text>
                                 <Text style={{ ...FONTS.h5, color: appTheme.textColor }}>{item.description}</Text>
-                                <CustomButton>onOrder</CustomButton>
+                                <CustomButton onPress={() => navigation.navigate("Location")}>onOrder</CustomButton>
                             </View>
                         );
                     }}
