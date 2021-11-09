@@ -12,7 +12,7 @@ const HeaderOrder = ({ appTheme, navigation, selectItem }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.VeiwLocation}>
-                <Text style={{ color: appTheme.textColor, ...FONTS.h3 }}>Order</Text>
+                <Text style={{ color: appTheme.textColor, ...FONTS.h3, marginRight: 50 }}>سفارش</Text>
                 <View style={{ backgroundColor: appTheme.locationtheme, justifyContent: "center", wdith: 50, backgroundColor: COLORS.white, padding: 8, marginTop: 10 }}>
                     <Text style={{ color: COLORS.primary }}>{selectItem?.title}</Text>
                 </View>

@@ -12,7 +12,7 @@ const HeaderLocation = ({ appTheme, navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.VeiwLocation}>
-                <Text style={{ color: appTheme.textColor, ...FONTS.h3 }}>Location</Text>
+                <Text style={{ color: appTheme.textColor, ...FONTS.h3, marginRight: 50 }}>موقعیت</Text>
             </View>
         </View>
     );

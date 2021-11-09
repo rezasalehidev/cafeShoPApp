@@ -26,7 +26,7 @@ const Location = ({ navigation, appTheme }) => {
                         containerStyle={{
                             width: 80,
                         }}
-                        label="Nearby"
+                        label="نزدیک ترین"
                         onPress={() => setSelectedTab(0)}
                         selected={selectedTab == 0 ? true : false}
                     />
@@ -34,7 +34,7 @@ const Location = ({ navigation, appTheme }) => {
                         containerStyle={{
                             width: 100,
                         }}
-                        label="previous"
+                        label="همیشگی"
                         onPress={() => setSelectedTab(1)}
                         selected={selectedTab == 1 ? true : false}
                     />
@@ -42,7 +42,7 @@ const Location = ({ navigation, appTheme }) => {
                         containerStyle={{
                             width: 100,
                         }}
-                        label="Favorite"
+                        label="بهترین"
                         onPress={() => setSelectedTab(2)}
                         selected={selectedTab == 2 ? true : false}
                     />
@@ -64,17 +64,16 @@ const Location = ({ navigation, appTheme }) => {
                     alignItems: "center",
                 }}
             >
-                <TextInput
-                    value={search}
-                    onChangeText={(value) => setSearch(value)}
-                    placeholder="Enter Your City"
-                    placeholderTextColor={COLORS.lightGray}
-                    style={{ marginLeft: 5, textAlign: "left", flex: 1 }}
-                />
-
                 <TouchableOpacity onPress={() => console.log("hello")}>
                     <Image source={icons.search} style={{ marginRight: 10 }} />
                 </TouchableOpacity>
+                <TextInput
+                    value={search}
+                    onChangeText={(value) => setSearch(value)}
+                    placeholder="شهر خود را وارد نمائید"
+                    placeholderTextColor={COLORS.lightGray}
+                    style={{ marginLeft: 5, textAlign: "right", flex: 1 }}
+                />
             </View>
 
             {/* List location (FlatList) */}
@@ -92,7 +91,7 @@ const Location = ({ navigation, appTheme }) => {
                         <TouchableOpacity style={[styles.tochableContainer, { backgroundColor: COLORS.lightGray2 }]} onPress={() => navigation.navigate("Order", { selectItemLocation: item })}>
                             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                 <View>
-                                    <Text style={{ color: COLORS.white, ...FONTS.body2 }}>Graden Grown {item.id}</Text>
+                                    <Text style={{ color: COLORS.white, ...FONTS.body2 }}>آدرس تهران {item.id}</Text>
                                     <Text style={{ color: COLORS.white, ...FONTS.body4 }}>Iran{item.id}</Text>
                                     <Text style={{ color: COLORS.white }}>Tehran {item.id}</Text>
                                 </View>
@@ -138,7 +137,7 @@ const Location = ({ navigation, appTheme }) => {
                                     labelStyle={{ color: COLORS.white }}
                                     onPress={() => navigation.navigate("Location")}
                                 >
-                                    Delivery
+                                    زمان تحویل
                                 </DesignButton>
                             </View>
                         </TouchableOpacity>

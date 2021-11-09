@@ -34,8 +34,8 @@ const Home = ({ navigation, appTheme }) => {
                     </ImageBackground>
                 </View>
                 <View style={styles.RewardsRight}>
-                    <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>Available Rewards</Text>
-                    <Text style={{ color: COLORS.white, ...FONTS.h4, backgroundColor: COLORS.primary, padding: 4, borderRadius: 7 }}>150Point - 2$</Text>
+                    <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>هدایای شگفت انگیز</Text>
+                    <Text style={{ color: COLORS.white, ...FONTS.h4, backgroundColor: COLORS.primary, padding: 4, borderRadius: 7 }}>5 دلار تخفیف </Text>
                 </View>
             </TouchableWithoutFeedback>
         );
@@ -108,8 +108,6 @@ const Home = ({ navigation, appTheme }) => {
                         flexDirection: "row",
                         marginTop: 10,
                         borderRadius: SIZES.radius,
-                        backgroundColor: "#ddd",
-                        wdith: 100,
                         borderRadius: 10,
                         alignItems: "center",
                         justifyContent: "center",
@@ -120,11 +118,11 @@ const Home = ({ navigation, appTheme }) => {
                     {dataTabs.map((item, index) => {
                         const textColor = tabPosition.interpolate({
                             inputRange: [index - 1, index, index + 1],
-                            outputRange: [COLORS.black, COLORS.white, COLORS.black],
+                            outputRange: [COLORS.black, COLORS.lightGreen, COLORS.black],
                             extrapolate: "clamp",
                         });
                         return (
-                            <TouchableOpacity key={index} onPress={() => onTabPress(index)}>
+                            <TouchableOpacity key={index} onPress={() => onTabPress(index)} style={{ backgroundColor: "#fff", borderRadius: 10, marginRight: 10 }}>
                                 <View ref={item.ref}>
                                     <Animated.Text key={index} style={{ color: textColor, marginHorizontal: 10 }}>
                                         {item.title}
@@ -165,7 +163,7 @@ const Home = ({ navigation, appTheme }) => {
                                 <Image source={item.image} style={{ marginHorizontal: 20 }} />
                                 <Text style={{ ...FONTS.h3, color: COLORS.primary }}>{item.name}</Text>
                                 <Text style={{ ...FONTS.h5, color: appTheme.textColor }}>{item.description}</Text>
-                                <CustomButton onPress={() => navigation.navigate("Location")}>onOrder</CustomButton>
+                                <CustomButton onPress={() => navigation.navigate("Location")}>سفارش</CustomButton>
                             </View>
                         );
                     }}

@@ -39,7 +39,7 @@ const Order = ({ navigation, appTheme, route }) => {
                             containerStyle={{
                                 width: 80,
                             }}
-                            label="Menu"
+                            label="منو"
                             onPress={() => setSelectedTab(0)}
                             selected={selectedTab == 0 ? true : false}
                         />
@@ -47,7 +47,7 @@ const Order = ({ navigation, appTheme, route }) => {
                             containerStyle={{
                                 width: 100,
                             }}
-                            label="previous"
+                            label="همیشگی"
                             onPress={() => setSelectedTab(1)}
                             selected={selectedTab == 1 ? true : false}
                         />
@@ -55,7 +55,7 @@ const Order = ({ navigation, appTheme, route }) => {
                             containerStyle={{
                                 width: 100,
                             }}
-                            label="Favorite"
+                            label="بهترین"
                             onPress={() => setSelectedTab(2)}
                             selected={selectedTab == 2 ? true : false}
                         />
@@ -99,7 +99,7 @@ const Order = ({ navigation, appTheme, route }) => {
                                         </Text>
                                         <Text style={{ marginTop: 10, color: COLORS.white, fontSize: 11 }}>Price : {item.price}$</Text>
                                         <TouchableOpacity style={{ fontSize: 11, marginTop: 20, backgroundColor: COLORS.lightPink, padding: 8, borderRadius: 10 }}>
-                                            <Text style={{ fontSize: 11 }}>Buy</Text>
+                                            <Text style={{ fontSize: 11 }}>خرید</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
