@@ -1,25 +1,25 @@
 export const availableRewards = [
     {
         id: 1,
-        title: "150 points - $2.50 off",
+        title: "150 تومن - 15 تخفیف",
         eligible: true,
     },
     {
         id: 2,
-        title: "340 points - any 20oz tea or coffee",
+        title: "200 تومن قهوه - 20 تخفیف",
         eligible: false,
     },
     {
         id: 3,
-        title: "400 points - any 2 x 20oz tea or coffee",
+        title: "300 تومن شیر - 30 تخفیف",
         eligible: false,
     },
     {
         id: 4,
-        title: "500 points - any 3 x 20oz tea or coffee",
+        title: "400 تومن چای - 40 تخفیف",
         eligible: false,
     },
-]
+];
 
 export const locations = [
     {
@@ -27,30 +27,30 @@ export const locations = [
         title: "Garden Grove #1",
         address: "10189 Westminster Avenue Garden Grove, CA",
         operation_hours: "Sunday - Thursday: 10AM - 11PM \nFriday - Saturday: 10AM - Midnight",
-        bookmarked: true
+        bookmarked: true,
     },
     {
         id: 2,
         title: "Garden Grove #2",
         address: "10189 Westminster Avenue Garden Grove, CA",
         operation_hours: "Sunday - Thursday: 10AM - 11PM \nFriday - Saturday: 10AM - Midnight",
-        bookmarked: false
+        bookmarked: false,
     },
     {
         id: 3,
         title: "Garden Grove #3",
         address: "10189 Westminster Avenue Garden Grove, CA",
         operation_hours: "Sunday - Thursday: 10AM - 11PM \nFriday - Saturday: 10AM - Midnight",
-        bookmarked: true
+        bookmarked: true,
     },
     {
         id: 4,
         title: "Garden Grove #4",
         address: "10189 Westminster Avenue Garden Grove, CA",
         operation_hours: "Sunday - Thursday: 10AM - 11PM \nFriday - Saturday: 10AM - Midnight",
-        bookmarked: false
+        bookmarked: false,
     },
-]
+];
 
 export const menuList = [
     {
@@ -59,7 +59,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/bubble-tea.png"),
-        category: "Milk Tea"
+        category: "Milk Tea",
     },
     {
         id: 2,
@@ -67,7 +67,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/bubble-tea.png"),
-        category: "Milk Tea"
+        category: "Milk Tea",
     },
     {
         id: 3,
@@ -75,7 +75,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/bubble-tea.png"),
-        category: "Milk Tea"
+        category: "Milk Tea",
     },
     {
         id: 4,
@@ -83,7 +83,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/ice-tea.png"),
-        category: "Specialtea"
+        category: "Specialtea",
     },
     {
         id: 5,
@@ -91,7 +91,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/smoothie.png"),
-        category: "Smoothie"
+        category: "Smoothie",
     },
     {
         id: 6,
@@ -99,7 +99,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/smoothie.png"),
-        category: "Smoothie"
+        category: "Smoothie",
     },
     {
         id: 7,
@@ -107,7 +107,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/smoothie.png"),
-        category: "Smoothie"
+        category: "Smoothie",
     },
     {
         id: 8,
@@ -115,7 +115,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/smoothie.png"),
-        category: "Smoothie"
+        category: "Smoothie",
     },
     {
         id: 9,
@@ -123,7 +123,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/coffee.png"),
-        category: "Coffee"
+        category: "Coffee",
     },
     {
         id: 10,
@@ -131,7 +131,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/coffee.png"),
-        category: "Coffee"
+        category: "Coffee",
     },
     {
         id: 11,
@@ -139,7 +139,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/coffee.png"),
-        category: "Coffee"
+        category: "Coffee",
     },
     {
         id: 12,
@@ -147,7 +147,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/coffee.png"),
-        category: "Coffee"
+        category: "Coffee",
     },
     {
         id: 13,
@@ -155,7 +155,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/coffee.png"),
-        category: "Coffee"
+        category: "Coffee",
     },
     {
         id: 14,
@@ -163,7 +163,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/french-fries.png"),
-        category: "Snack"
+        category: "Snack",
     },
     {
         id: 15,
@@ -171,9 +171,9 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/french-fries.png"),
-        category: "Snack"
+        category: "Snack",
     },
-]
+];
 
 export const milkList = [
     {
@@ -190,8 +190,8 @@ export const milkList = [
         id: 3,
         name: "Whole Milk",
         image: require("../assets/icons/milk3.png"),
-    }
-]
+    },
+];
 
 const promos = [
     {
@@ -199,24 +199,23 @@ const promos = [
         name: "Strawberry Sensation",
         description: "Strawberry smoothie with strawberry bits",
         calories: "379 - 570",
-        image: require("../assets/images/strawberry-background.png")
+        image: require("../assets/images/strawberry-background.png"),
     },
     {
         id: 2,
         name: "Strawberry Sensation",
         description: "Strawberry smoothie with strawberry bits",
         calories: "400 - 570",
-        image: require("../assets/images/strawberry-background.png")
+        image: require("../assets/images/strawberry-background.png"),
     },
     {
         id: 3,
         name: "Strawberry Sensation",
         description: "Strawberry smoothie with strawberry bits",
         calories: "449 - 570",
-        image: require("../assets/images/strawberry-background.png")
+        image: require("../assets/images/strawberry-background.png"),
     },
-
-]
+];
 
 const dummyData = {
     availableRewards,

@@ -39,7 +39,7 @@ const Rewards = ({ navigation, appTheme }) => {
                                 labelStyle={{ color: COLORS.white }}
                                 onPress={() => navigation.navigate("Location")}
                             >
-                                Shop
+                                فروشگاه
                             </DesignButton>
                             <DesignButton
                                 stylesContent={{
@@ -56,12 +56,12 @@ const Rewards = ({ navigation, appTheme }) => {
                                 onPress={() => navigation.navigate("Location")}
                                 labelStyle={{ color: COLORS.black, fontSize: 12 }}
                             >
-                                New Order
+                                سفارش جدید{" "}
                             </DesignButton>
                         </View>
 
                         {/* Text Available */}
-                        <Text style={{ alignSelf: "flex-start", marginHorizontal: 25, marginVertical: 10, color: appTheme.textColor }}>Available Now</Text>
+                        <Text style={{ alignSelf: "flex-end", marginHorizontal: 25, marginVertical: 10, color: appTheme.textColor }}>محصولات آماده ارسال</Text>
                     </View>
                 }
                 renderItem={({ item }) => {

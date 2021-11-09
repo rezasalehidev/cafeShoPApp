@@ -16,10 +16,6 @@ const HeaderBar = ({ appTheme, toggleTheme }) => {
 
     return (
         <View style={styles.Header}>
-            <View style={styles.textHeader}>
-                <Text style={{ color: COLORS.white }}>Reza</Text>
-                <Text style={{ color: COLORS.white }}>welcome</Text>
-            </View>
             <TouchableOpacity style={styles.Btnicon} onPress={() => togglethemeHandler()}>
                 <View style={{ width: 35, height: 35, justifyContent: "center" }}>
                     <Image source={icons.sunny} style={{ width: 25, height: 25, ...(appTheme.name === "light" ? styles.selectlight : { tintColor: COLORS.white }) }} />
@@ -28,6 +24,12 @@ const HeaderBar = ({ appTheme, toggleTheme }) => {
                     <Image source={icons.night} style={{ width: 25, height: 25, ...(appTheme.name === "dark" ? styles.selectnight : { tintColor: COLORS.white }) }} />
                 </View>
             </TouchableOpacity>
+            <View style={styles.textHeader}>
+                <View style={{ backgroundColor: COLORS.white, alignItems: "center", marginBottom: 5, borderRadius: 7 }}>
+                    <Text style={{ color: COLORS.black }}>رضا</Text>
+                </View>
+                <Text style={{ color: COLORS.white }}>خوش آمدید</Text>
+            </View>
         </View>
     );
 };
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     textHeader: {
-        marginLeft: 10,
+        marginRight: 10,
         marginTop: 10,
         color: COLORS.white,
     },
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginRight: 10,
+        marginLeft: 10,
         marginTop: 10,
         borderRadius: 15,
         borderWidth: 1,

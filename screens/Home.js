@@ -102,7 +102,19 @@ const Home = ({ navigation, appTheme }) => {
 
         return (
             <>
-                <View ref={containerRef} style={{ flexDirection: "row", marginHorizontal: 30, marginTop: 10, borderRadius: SIZES.radius, backgroundColor: "#ddd" }}>
+                <View
+                    ref={containerRef}
+                    style={{
+                        flexDirection: "row",
+                        marginTop: 10,
+                        borderRadius: SIZES.radius,
+                        backgroundColor: "#ddd",
+                        wdith: 100,
+                        borderRadius: 10,
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
                     {measureLayout.length > 0 && <TabIndicator measureLayout={measureLayout} scrollX={scrollX} />}
 
                     {dataTabs.map((item, index) => {
@@ -114,7 +126,7 @@ const Home = ({ navigation, appTheme }) => {
                         return (
                             <TouchableOpacity key={index} onPress={() => onTabPress(index)}>
                                 <View ref={item.ref}>
-                                    <Animated.Text key={index} style={{ marginHorizontal: 15, color: textColor }}>
+                                    <Animated.Text key={index} style={{ color: textColor, marginHorizontal: 10 }}>
                                         {item.title}
                                     </Animated.Text>
                                 </View>

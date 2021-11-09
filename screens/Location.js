@@ -120,7 +120,7 @@ const Location = ({ navigation, appTheme }) => {
                                     labelStyle={{ color: COLORS.white }}
                                     onPress={() => navigation.navigate("Location")}
                                 >
-                                    Shop
+                                    فروشگاه
                                 </DesignButton>
                                 <DesignButton
                                     stylesContent={{

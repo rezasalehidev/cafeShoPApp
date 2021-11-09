@@ -1,20 +1,20 @@
 const promoTabs = [
     {
         id: 1,
-        title: "Scan in store",
+        title: "قهوه تازه",
     },
     {
         id: 2,
-        title: "Drink of the Day",
+        title: "چایی تازه",
     },
     {
         id: 3,
-        title: "Deals",
+        title: "شیر تازه",
     },
-]
+];
 
 const constants = {
-    promoTabs
+    promoTabs,
 };
 
 export default constants;
